@@ -24,9 +24,10 @@
     "url": "https://github.com/learn-co-curriculum/phase-1-mock-cc-ramen-rater/issues"
   },
   "homepage": "https://github.com/learn-co-curriculum/phase-1-mock-cc-ramen-rater#readme",
-  "dependencies": {
-    "@testing-library/dom": "^9.3.4",
-    "happy-dom": "^13.2.1",
-    "vitest": "^1.2.1"
+  "devDependencies": {
+    "@testing-library/dom": "^10.4.0",
+    "happy-dom": "^15.7.4",
+    "rollup": "^4.24.0",
+    "vitest": "^2.1.2"
   }
 }
