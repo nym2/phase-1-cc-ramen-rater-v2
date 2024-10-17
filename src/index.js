@@ -1,7 +1,8 @@
-// index.js
+// index.js 
 
 // Callbacks
 const handleClick = (ramen) => {
+  // Display the selected ramen's details in the detailed view section
   document.querySelector('.detail-image').src = ramen.image;
   document.querySelector('.name').textContent = ramen.name;
   document.querySelector('.restaurant').textContent = ramen.restaurant;
@@ -11,24 +12,29 @@ const handleClick = (ramen) => {
 
 const addSubmitListener = () => {
   const form = document.querySelector('#new-ramen');
-  form.addEventListener('submit', (event) => {
-    event.preventDefault();
+  if (form) {
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
 
-    const newRamen = {
-      name: event.target.name.value,
-      restaurant: event.target.restaurant.value,
-      image: event.target.image.value,
-      rating: event.target.rating.value,
-      comment: event.target.comment.value,
-    };
+      const newRamen = {
+        name: event.target.name.value,
+        restaurant: event.target.restaurant.value,
+        image: event.target.image.value,
+        rating: event.target.rating.value,
+        comment: event.target.comment.value,
+      };
 
-    displayNewRamen(newRamen);
+      displayNewRamen(newRamen);
 
-    form.reset();
-  });
-}
+      form.reset();
+    });
+  } else {
+    console.error('Form element #new-ramen not found');
+  }
+};
 
 const displayRamens = () => {
+  // Fetch the list of ramen from the API and display them in the menu
   fetch('http://localhost:3000/ramens')
     .then(response => response.json())
     .then(ramenList => {
@@ -61,7 +67,7 @@ const main = () => {
   });
 };
 
-main()
+main();
 
 // Export functions for testing
 export {
